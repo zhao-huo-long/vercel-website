@@ -5,6 +5,7 @@ nav:
 ---
 
 # DateHotMap
+## DEMO
 ```tsx
 import { DateHotMap } from 'blog-site-components'
 import React from 'react'

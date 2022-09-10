@@ -13,9 +13,9 @@ export interface CardProps {
 }
 
 const Card: FC<CardProps> = (props) => {
-  const { children, style, className } = props
+  const { children, className, ...restProps } = props
   const cls = classnames(className, 'site-card')
-  return <div style={style} className={cls}>
+  return <div className={cls} {...restProps}>
     {children}
   </div>
 }
