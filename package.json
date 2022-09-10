@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/zhao-huo-long/vercel-website#readme",
   "devDependencies": {
+    "@types/react": "^18.0.18",
+    "@types/react-dom": "^18.0.6",
     "@webpack-cli/generators": "^2.5.0",
     "autoprefixer": "^10.4.8",
     "css-loader": "^6.7.1",
@@ -38,5 +40,13 @@
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.0"
-  }
+  },
+  "dependencies": {
+    "dayjs": "^1.11.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "workspaces": [
+    "packages/blog-site-components"
+  ]
 }

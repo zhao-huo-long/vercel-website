@@ -1,0 +1,47 @@
+@compName: date-hot-map;
+
+
+@L0-bg: rgba(27, 31, 35, 0.06);
+@L1-bg: #9be9a8;
+@L2-bg: #40c463;
+@L3-bg: #30a14e;
+@L4-bg: #216e39;
+
+.@{compName} {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+
+  .@{compName}-week-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .@{compName}-day-box {
+    width: 16px;
+    height: 16px;
+    background-color: @L0-bg;
+    border-radius: 3px;
+  }
+
+  .@{compName}-l0 {
+    background-color: @L0-bg;
+  }
+
+  .@{compName}-l1 {
+    background-color: @L1-bg;
+  }
+
+  .@{compName}-l2 {
+    background-color: @L2-bg;
+  }
+
+  .@{compName}-l3 {
+    background-color: @L3-bg;
+  }
+
+  .@{compName}-l4 {
+    background-color: @L4-bg;
+  }
+}
