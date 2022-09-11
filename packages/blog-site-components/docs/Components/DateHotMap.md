@@ -9,6 +9,7 @@ nav:
 ```tsx
 import { DateHotMap } from 'blog-site-components'
 import React from 'react'
+import { Card } from 'blog-site-components'
 
 const map = {
   '2022-08-01': 20,
@@ -29,25 +30,28 @@ const map = {
 }
 
 export default () => {
-  return <DateHotMap genLevel={(date) => {
-    const val = map[date] / 10 
-    if(val){
-      if(val <= 1 ){
-        return 1
-      }
-      if(val <= 2 ){
-        return 2
-      }
-      if(val <= 3 ){
-        return 3
-      }
-      if(val <= 4 ){
+  const genLevel = (date) => {
+      const val = map[date] / 10 
+      if(val){
+        if(val <= 1 ){
+          return 1
+        }
+        if(val <= 2 ){
+          return 2
+        }
+        if(val <= 3 ){
+          return 3
+        }
+        if(val <= 4 ){
+          return 4
+        }
         return 4
       }
-      return 4
+      return 0
     }
-    return 0
-  }}  startDate="2022-01-01" endDate="2022-10-01" />
+  return <Card> 
+    <DateHotMap genLevel={genLevel}  startDate="2022-01-01" endDate="2022-10-01" />
+  </Card>
 }
 ```
 <API src="../../src/DateHotMap/index.tsx"></API>
