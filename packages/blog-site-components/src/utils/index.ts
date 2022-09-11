@@ -1,1 +1,1 @@
-export * from './genDateAry'
+export * from './dateUtils'

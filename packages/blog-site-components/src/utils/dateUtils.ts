@@ -32,3 +32,30 @@ export function genDateAry(start: string, end: string) {
   }
   return result
 }
+
+export function getValByProps<T extends unknown>(obj: T, propsPath?: string[]): unknown {
+  if (Array.isArray(propsPath)) {
+    const props = [...propsPath]
+    let target = obj as any
+    while (props.length) {
+      const current = props.shift() as string
+      target = target?.[current]
+    }
+    return target
+  }
+  return obj
+}
+
+export function dateArySort(ary: unknown[] = [], order?: 'ascending' | 'descending', propsPath?: string[],) {
+  if (Array.isArray(ary)) {
+    const aryShadow = [...ary]
+    if (order === 'ascending') {
+      aryShadow.sort((a, b) => dayjs(getValByProps(a, propsPath) as any).unix() - dayjs(getValByProps(b, propsPath) as any).unix())
+    }else{
+      aryShadow.sort((b, a) => dayjs(getValByProps(a, propsPath) as any).unix() - dayjs(getValByProps(b, propsPath) as any).unix())
+    }
+    console.log(aryShadow)
+    return aryShadow
+  }
+  return ary
+}

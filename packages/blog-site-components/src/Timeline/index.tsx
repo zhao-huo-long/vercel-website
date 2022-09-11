@@ -4,6 +4,7 @@ import dayjs from 'dayjs/esm'
 import relativeTime from 'dayjs/esm/plugin/relativeTime'
 import classnames from 'classnames'
 import './styles.less'
+import { dateArySort } from '@/utils'
 
 dayjs.extend(relativeTime)
 
@@ -49,16 +50,11 @@ export interface Timeline extends FC<TimelineProps> {
 const Timeline: FC<TimelineProps> = (props) => {
   const { children, className, order, ...restProps } = props
   if (Array.isArray(children) && order) {
-    const childrenShadow = [...children]
-    if (order === 'ascending') {
-      childrenShadow.sort((a, b) => dayjs(a.props.value).unix() - dayjs(b.props.value).unix())
-    }
-    if (order === 'descending') {
-      childrenShadow.sort((b, a) => dayjs(a.props.value).unix() - dayjs(b.props.value).unix())
-    }
+    const childrenShadow = dateArySort(children, order,  ['props', 'value'])
     return <div
       className={classnames(className, 'timeline')}
-      {...restProps} >
+      {...restProps}
+    >
       {childrenShadow}
     </div>
   }
