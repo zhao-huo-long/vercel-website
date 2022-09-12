@@ -51,10 +51,9 @@ export function dateArySort(ary: unknown[] = [], order?: 'ascending' | 'descendi
     const aryShadow = [...ary]
     if (order === 'ascending') {
       aryShadow.sort((a, b) => dayjs(getValByProps(a, propsPath) as any).unix() - dayjs(getValByProps(b, propsPath) as any).unix())
-    }else{
+    }else if(order === 'descending'){
       aryShadow.sort((b, a) => dayjs(getValByProps(a, propsPath) as any).unix() - dayjs(getValByProps(b, propsPath) as any).unix())
     }
-    console.log(aryShadow)
     return aryShadow
   }
   return ary

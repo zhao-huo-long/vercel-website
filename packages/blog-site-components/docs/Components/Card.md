@@ -18,11 +18,17 @@ const style = {
 export default () => {
   return <div style={style}>
     <Card title="卡片" className="test">
-      <img style={{marginTop: 10, alignSelf: 'start'}} width="200px" 
+      <img         
+        height="200px"
+        style={{marginTop: 10, objectFit: 'cover'}} 
+        width="280px" 
         src="https://t7.baidu.com/it/u=2642405278,1292283273&fm=193&f=GIF" alt="img" />
     </Card>
     <Card style={{ alignSelf: 'start'}}>
-      <img width="200px" 
+      <img 
+        width="280px" 
+        height="200px"
+        style={{ objectFit: 'cover'}} 
         src="https://t7.baidu.com/it/u=2642405278,1292283273&fm=193&f=GIF" alt="img" />
     </Card>
   </div>
