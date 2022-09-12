@@ -9,14 +9,21 @@ export interface CardProps {
   /** 样式 */
   style?: React.CSSProperties, // string 支持识别 TypeScript 可选类型为非必选属性
   /** className */
-  className?: string
+  className?: string,
+  radius?: boolean,
+  title?: React.ReactNode
 }
 
 const Card: FC<CardProps> = (props) => {
-  const { children, className, ...restProps } = props
-  const cls = classnames(className, 'site-card')
+  const { children, className, title, radius = true, ...restProps } = props
+  const cls = classnames(className, 'site-card', {
+    'site-card-radius': radius
+  })
+  const titleJSX = title && <div className='site-card-title'>{title}</div>
+  const contentJSX = children && <div className='site-card-content'>{children}</div>
   return <div className={cls} {...restProps}>
-    {children}
+    {titleJSX}
+    {contentJSX}
   </div>
 }
 

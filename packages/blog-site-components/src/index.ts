@@ -1,3 +1,5 @@
 export { default as Card } from './Card'
 export { default as DateHotMap } from './DateHotMap'
 export { default as Timeline } from './Timeline'
+export { default as Link } from './Link'
+export { default as ArticleCard } from './ArticleCard'
