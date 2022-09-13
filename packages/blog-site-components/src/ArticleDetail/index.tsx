@@ -7,7 +7,7 @@ import Link from '../Link'
 import Tag from '../Tag'
 import dayjs from 'dayjs';
 
-interface ArticleProps{
+interface ArticleDetailProps {
   /** 默认插槽 */
   children?: React.ReactNode,
   /** 样式 */
@@ -25,7 +25,7 @@ interface ArticleProps{
 }
 
 
-const ArticleCard: FC<ArticleProps> = (props) => {
+const ArticleDetail: FC<ArticleDetailProps> = (props) => {
   const {
     children,
     href,
@@ -39,34 +39,34 @@ const ArticleCard: FC<ArticleProps> = (props) => {
     tags = [],
     ...restProps
   } = props
-  const cls = classnames(className, 'article-card')
-  const cover = coverImg && <div className='article-card-cover'>
+  const cls = classnames(className, 'article-detail')
+  const cover = coverImg && <div className='article-detail-cover'>
     <img src={coverImg} alt={title || 'img'} />
   </div>
-  const titleJSX = title && <div className='article-card-title'>
+  const titleJSX = title && <div className='article-detail-title'>
     <Link href={href}>{title}</Link>
   </div>
-  const descJSX = desc && <div className='article-card-desc'>{desc}</div>
+  const descJSX = desc && <div className='article-detail-desc'>{desc}</div>
   return <Card className={cls} {...restProps}>
     {cover}
     {titleJSX}
-    <div className='article-card-tag'>
-      {tags?.map(i => <Tag key={i}>{i}</Tag>)}
+    <div className='article-detail-msg'>
+      <div>{time || dayjs().format('YYYY/MM/DD')}</div>
+      <div>
+        约<span> 3 </span>千字
+      </div>
+      <div className='article-detail-tag'>
+        {tags?.map(i => <Tag key={i}>{i}</Tag>)}
+      </div>
     </div>
     {descJSX}
-    <div className='article-card-bottom'>
-      <div className='article-card-time'>
-        <div>{time || dayjs().format('YYYY/MM/DD')}</div>
-        <div>约 {views} 字</div>
-      </div>
-      <div className='article-card-msg'>
-        <span>
-          views: {views}
-        </span>
+    <div className='article-detail-bottom'>
+      <div className='article-detail-time'>
+        {time}
       </div>
     </div>
   </Card>
 }
 
 
-export default ArticleCard
+export default ArticleDetail
