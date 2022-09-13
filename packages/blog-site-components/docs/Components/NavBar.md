@@ -17,7 +17,12 @@ const style = {
 
 export default () => {
   return <div style={style}>
-    <NavBar></NavBar>
+    <NavBar navMenu={[
+      {
+        name: '首页',
+        path: '/'
+      }
+    ]}></NavBar>
   </div>
 }
 ```
