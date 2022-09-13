@@ -2,6 +2,6 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   title: 'blog-site-components',
-  mode: 'site',
+  mode: 'doc',
   locales: [['zh-CN', '中文']],
 });
